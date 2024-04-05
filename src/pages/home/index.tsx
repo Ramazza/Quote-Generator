@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Container, Title, GenerateQuote, Quote } from './styles';
+import { Container, Title, GenerateQuote, Quote, QuoteContainer } from './styles';
 import { UserContext } from '../../context/userContext';
 
 function Home() {
@@ -22,10 +22,12 @@ function Home() {
 
    return(
       <Container>
-         <Title>Gerador de Citações</Title>
-         <GenerateQuote onClick={() => handleQuote()}>Gerar Citação</GenerateQuote>
-         <Quote>{quoteFrase? quoteFrase: ''}</Quote>
-         <Quote>{author? author: ''}</Quote>
+         <Title>Quote Generator</Title>
+         <GenerateQuote onClick={() => handleQuote()}>{quoteFrase? 'Generate another quote' : 'Generate quote'}</GenerateQuote>
+         <QuoteContainer>
+            <Quote>{quoteFrase? `"${quoteFrase}"`: ''}</Quote>
+            <Quote>{author? author: ''}</Quote>
+         </QuoteContainer>
       </Container>
    );
 }
